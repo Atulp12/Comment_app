@@ -36,9 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text, password: passwordController.text);
 
     if (res == "Success") {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          (route) => false);
     } else {
       showSnackBar(res, context);
     }
